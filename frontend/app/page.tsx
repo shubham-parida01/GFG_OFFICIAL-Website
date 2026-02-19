@@ -9,6 +9,7 @@ import { TeamSection } from "@/components/features/TeamSection"
 import { WelcomeSplash, StatsSection, MarqueeSection } from "@/components/features/misc-sections"
 
 import { NetworkBackground } from "@/components/ui/effects"
+import { PotdSection } from "@/components/features/PotdSection"
 import { FAQSection } from "@/components/features/FAQSection"
 import { EvolutionTimeline } from "@/components/features/EvolutionTimeline"
 import { BentoSection } from "@/components/features/BentoSection"
@@ -40,6 +41,9 @@ export default function Home() {
         <FadeIn delay={0.2}><TracksSection /></FadeIn>
 
         <FadeIn delay={0.2}><EvolutionTimeline /></FadeIn>
+
+
+        <FadeIn delay={0.2}><PotdSection /></FadeIn>
 
 
         <EventsSection />

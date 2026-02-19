@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Cpu, Palette, Megaphone, Settings } from "lucide-react"
-import { GlitchText } from "@/components/ui/glitch-text"
-import { NeonCard } from "@/components/ui/neon-card"
+import { GlitchText } from "@/components/ui/effects"
+import { NeonCard } from "@/components/ui/cards"
 import { TeamDetailModal, TeamDetail } from "./TeamDetailModal"
 import { cn } from "@/lib/utils"
 

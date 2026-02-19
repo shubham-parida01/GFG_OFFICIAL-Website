@@ -1,10 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
-import { Code2, Rocket, Users, Trophy, Palette, Megaphone, Settings, Star, GitCommit, Briefcase, Zap } from "lucide-react"
-import { AnimatedCounter } from "@/components/ui/animated-counter"
-import { FadeIn, StaggerContainer } from "@/components/ui/motion-wrapper"
+import { Rocket, Trophy, Palette, Megaphone, Settings, Star, Briefcase } from "lucide-react"
+import { BentoGrid, BentoCard } from "@/components/ui/layouts"
+import { AnimatedCounter } from "@/components/ui/effects"
+import { FadeIn, StaggerContainer } from "@/components/ui/interacts"
 
 export function BentoSection() {
     return (
