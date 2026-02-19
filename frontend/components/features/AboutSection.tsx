@@ -3,113 +3,99 @@
 import { motion } from "framer-motion"
 import { Cpu, Globe, Zap, Code2 } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { TextReveal } from "@/components/ui/text-reveal"
-import { GradientText } from "@/components/ui/gradient-text"
+
+// Changed from default imports to named imports (added curly braces)
+import { SectionShell } from "../layout/SectionShell"
+import { GlassCard } from "../ui/glass-card"
+import { GradientText } from "../ui/gradient-text"
+
+const features = [
+    {
+        title: "Technical Excellence",
+        description: "Mastering complex algorithms and modern frameworks to build robust digital solutions.",
+        icon: Cpu,
+        color: "from-blue-500/20 to-cyan-500/20",
+        iconColor: "text-blue-400"
+    },
+    {
+        title: "Global Community",
+        description: "Connecting passionate developers across borders to share knowledge and innovate together.",
+        icon: Globe,
+        color: "from-purple-500/20 to-pink-500/20",
+        iconColor: "text-purple-400"
+    },
+    {
+        title: "Rapid Innovation",
+        description: "Turning ideas into reality with agile development and cutting-edge technologies.",
+        icon: Zap,
+        color: "from-amber-500/20 to-orange-500/20",
+        iconColor: "text-amber-400"
+    },
+    {
+        title: "Clean Code",
+        description: "Prioritizing maintainability and performance in every line of code we write.",
+        icon: Code2,
+        color: "from-emerald-500/20 to-teal-500/20",
+        iconColor: "text-emerald-400"
+    }
+]
 
 export function AboutSection() {
     return (
-        <section className="relative py-[8vh] overflow-hidden bg-background min-h-screen flex items-center">
-            {/* Background Decorations */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-1/3 h-full bg-secondary/5 blur-[120px] pointer-events-none" />
-
-            <div className="container relative z-10 px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-                    {/* Left: Text Content */}
-                    <div className="space-y-8">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <h2 className="text-4xl md:text-5xl font-bold font-space-grotesk mb-4">
-                                <span className="text-primary italic">#</span> About The Chapter
-                            </h2>
-                            <div className="h-1 w-20 bg-gradient-to-r from-primary to-transparent" />
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="space-y-6 text-muted-foreground text-lg leading-relaxed font-light"
-                        >
-                            <p>
-                                <strong className="text-foreground">GeeksforGeeks Student Chapter ITER</strong> is not just a club; it's a{" "}
-                                <GradientText gradient="primary">
-                                    high-performance compiler
-                                </GradientText>{" "}
-                                for your career. We are a community of passionate developers, designers, and innovators.
-                            </p>
-                            <p>
-                                <TextReveal
-                                    text="Our mission is to bridge the gap between academic curriculum and industry demands. We organize hackathons, coding contests, and technical workshops to ensure you ship code that matters."
-                                    variant="blur"
-                                    delay={0.3}
-                                />
-                            </p>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="grid grid-cols-2 gap-4"
-                        >
-                            <div className="p-4 rounded-lg bg-card/50 border border-white/5 hover:border-primary/30 transition-colors">
-                                <h3 className="text-3xl font-bold font-mono text-white mb-2">103</h3>
-                                <p className="text-sm text-muted-foreground uppercase tracking-wider">Active Members</p>
-                            </div>
-                            <div className="p-4 rounded-lg bg-card/50 border border-white/5 hover:border-secondary/30 transition-colors">
-                                <h3 className="text-3xl font-bold font-mono text-white mb-2">5</h3>
-                                <p className="text-sm text-muted-foreground uppercase tracking-wider">Events Hosted</p>
-                            </div>
-                        </motion.div>
+        <SectionShell id="about">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="space-y-6"
+                >
+                    <div className="space-y-2">
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
+                            About <GradientText>GFG Official</GradientText>
+                        </h2>
+                        <p className="text-muted-foreground text-lg max-w-[600px]">
+                            We are a community of creators, thinkers, and builders dedicated to pushing the boundaries of what's possible in the digital realm.
+                        </p>
                     </div>
 
-                    {/* Right: Visual/Image */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="relative"
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-primary opacity-20 blur-2xl animate-pulse-glow" />
-                        <div className="relative glass-panel p-8 rounded-2xl border border-white/10 overflow-hidden transform hover:rotate-2 transition-transform duration-500">
-                            <div className="absolute top-0 right-0 p-4 opacity-20">
-                                <Code2 className="w-32 h-32" />
-                            </div>
+                    <div className="space-y-4 text-muted-foreground">
+                        <p>
+                            Founded with the vision of bridging the gap between theory and practice, GFG Official has grown into a vibrant ecosystem for developers at all stages of their journey.
+                        </p>
+                        <p>
+                            Our mission is to empower individuals with the tools, knowledge, and community support they need to excel in the ever-evolving landscape of technology.
+                        </p>
+                    </div>
+                </motion.div>
 
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-4">
-                                    <div className="h-32 rounded-lg bg-white/5 animate-pulse" />
-                                    <div className="h-20 rounded-lg bg-white/5 animate-pulse delay-75" />
+                <div className="grid sm:grid-cols-2 gap-4">
+                    {features.map((feature, index) => (
+                        <motion.div
+                            key={feature.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                        >
+                            <GlassCard className="p-6 h-full hover:border-primary/50 transition-colors group">
+                                <div className={cn(
+                                    "w-12 h-12 rounded-lg bg-gradient-to-br flex items-center justify-center mb-4",
+                                    feature.color
+                                )}>
+                                    <feature.icon className={cn("w-6 h-6", feature.iconColor)} />
                                 </div>
-                                <div className="space-y-4 pt-8">
-                                    <div className="h-20 rounded-lg bg-white/5 animate-pulse delay-150" />
-                                    <div className="h-32 rounded-lg bg-white/5 animate-pulse delay-300" />
-                                </div>
-                            </div>
-
-                            <div className="mt-8 pt-8 border-t border-white/10">
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-2">
-                                        <Zap className="w-5 h-5 text-yellow-500" />
-                                        <span className="font-mono text-sm text-yellow-500">High Voltage Learning</span>
-                                    </div>
-                                    <span className="font-mono text-xs text-muted-foreground">v2.0.24</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-
+                                <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">
+                                    {feature.title}
+                                </h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
+                                    {feature.description}
+                                </p>
+                            </GlassCard>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
-        </section>
+        </SectionShell>
     )
 }
